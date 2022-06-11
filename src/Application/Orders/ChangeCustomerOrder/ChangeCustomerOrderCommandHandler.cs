@@ -32,7 +32,7 @@ namespace Application.Orders.ChangeCustomerOrder
             var orderId = new OrderId(request.OrderId);
 
             var conversionRates = _foreignExchange.GetConversionRates();
-            var orderProducts = request.Products.Select(x => new OrderProductData(new ProductId(x.Id), x.Quantity)).ToList();
+            var orderProducts = request.Products.ConvertAll(x => new OrderProductData(new ProductId(x.Id), x.Quantity));
 
             var allProductPrices = await ProductPriceProvider.GetAllProductPrices(_sqlConnectionFactory.GetOpenConnection());
 

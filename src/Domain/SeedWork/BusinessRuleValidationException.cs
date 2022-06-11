@@ -17,6 +17,22 @@ namespace Domain.SeedWork
             this.Details = brokenRule.Message;
         }
 
+        public BusinessRuleValidationException() : base()
+        {
+        }
+
+        protected BusinessRuleValidationException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
+        {
+        }
+
+        public BusinessRuleValidationException(string message) : base(message)
+        {
+        }
+
+        public BusinessRuleValidationException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
         public override string ToString()
         {
             return $"{BrokenRule.GetType().FullName}: {BrokenRule.Message}";

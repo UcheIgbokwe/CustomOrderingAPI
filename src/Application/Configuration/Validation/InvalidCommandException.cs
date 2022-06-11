@@ -12,5 +12,21 @@ namespace Application.Configuration.Validation
         {
             this.Details = details;
         }
+
+        public InvalidCommandException() : base()
+        {
+        }
+
+        protected InvalidCommandException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context)
+        {
+        }
+
+        public InvalidCommandException(string message) : base(message)
+        {
+        }
+
+        public InvalidCommandException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }

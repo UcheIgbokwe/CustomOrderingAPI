@@ -20,10 +20,10 @@ namespace Application.Orders.PlaceCustomerOrder
                                                                                   "FROM orders.v_ProductPrices AS [ProductPrice]");
 
             return productPrices.AsList()
-                .Select(x => new ProductPriceData(
+                .ConvertAll(x => new ProductPriceData(
                     new ProductId(x.ProductId),
                     MoneyValue.Of(x.Value, x.Currency)))
-                .ToList();
+;
         }
 
         private sealed class ProductPriceResponse
